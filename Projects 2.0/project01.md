@@ -1,0 +1,9 @@
+### Fare riferimento sempre al Syllabus per l'effetivo inizio del progetto
+## Settimana 05 - Settimana 12
+
+Clonare uno di questi quattro siti: HTML CSS JS
+
+* https://www.mediaworld.it/
+* https://www.ikea.com/
+* https://www.ea.com/it-it
+* https://www.lego.com/
