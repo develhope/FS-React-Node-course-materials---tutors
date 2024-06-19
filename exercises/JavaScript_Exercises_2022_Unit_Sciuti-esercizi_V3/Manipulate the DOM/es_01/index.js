@@ -1,7 +1,0 @@
-const addProduct = () => {
-    // ...
-};
-
-const makeItDark = () => {
-    //...
-};
