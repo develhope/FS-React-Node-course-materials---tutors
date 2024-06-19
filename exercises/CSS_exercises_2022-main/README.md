@@ -1,1 +1,0 @@
-# CSS_exercises_2022
