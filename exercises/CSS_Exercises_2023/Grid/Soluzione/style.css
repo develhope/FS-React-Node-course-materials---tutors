@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calc-wrapper {
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 1px;
+}
+
+.grid-container button {
+  padding: 20px;
+}
+
+.equal {
+  grid-row: 2 / span 4;
+  grid-column: 4/5;
+  background: lightcoral;
+}
+
+.display {
+  color: white;
+  text-align: end;
+  background: #6f6c6c;
+  padding: 12px;
+}
