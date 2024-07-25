@@ -2,43 +2,67 @@
 
 ## Exercise 1: Explore with the Node.js REPL
 
+Create a script that outputs the total of 5 + 6 when you run it with Node.js.
+
+## Exercise 2: Explore with the Node.js REPL
+
 > _After Lesson: Run the Node.js REPL_
 
 Use the Node.js REPL to list the methods provided by the Node.js core `crypto` module. Use one of these methods to generate a random ID.
 
-## Exercise 2: Create and use CommonJS modules
+## Exercise 3: Create and use CommonJS modules
 
 > _After Lesson: Modules in Node.js_
 
-1. Create a script that uses `module.exports` to export a function.
-2. Create another script that uses `require()` to import the function and then calls it.
+There should be a script that:
 
-## Exercise 3: Create and use ECMAScript modules
+- Defines a function
+- Exports that function with module.exports
+
+There should be another script that:
+
+- Uses `require() `to import the function from the other script
+- Calls the imported function
+
+## Exercise 4: Create and use ECMAScript modules
 
 > _After Lesson: Modules in Node.js_
 
 1. Create a script that uses `export default` to export a function.
 2. Create another script that uses `import` to import the function and then calls it.
 
-## Exercise 4: Change the HTML response
+## Exercise 5: Change the HTML response
 
 > _After Lesson: Test the HTTP server_
 
-Create an HTTP server that sends an HTML response body with your own message.
+Our HTTP server sends an HTML response body. Replace the text in the HTML with your own message. Run the server and use your web browser to test your changes.
 
-Run the server and use your web browser to make a request to it.
+- Imports the Node.js core http module (or with node:http).
+- Creates an HTTP server with the http.createServer method.
+- Set the response status code to 200
+- Sets the response header: Content-Type: text/html
+- Sends an HTML response body containing any message.
+- Make the server listen to the port 3000
 
-## Exercise 5: Send JSON from Mars
+## Exercise 6: Send JSON from Mars
 
 > _After Lesson: Send a JSON response_
 
-Create an HTTP server that sends a JSON response body: `{ location: "Mars" }`
+Our HTTP server now sends a JSON response body.
 
-Run the server and make a request to it with `curl` using the `--verbose` flag.
+- Change the location in the response to "Mars".
+- Run the server and make a request to it with curl using the --verbose flag.
+- What is the value of the Content-Length response header?
 
-What is the value of the `Content-Length` response header? Include this value when you submit your code solution.
+There should be a single script that:
 
-## Exercise 6: Command-line art
+- Imports the Node.js core http module (or with node:http).
+- Creates an HTTP server with the http.createServer method.
+- Sets the response header: Content-Type: application/json
+- Sends the JSON response body: { location: "Mars" }
+- The value of the Content-Length response header is 19.
+
+## Exercise 7: Command-line art
 
 > _After Lesson: Using packages_
 
@@ -46,13 +70,13 @@ What is the value of the `Content-Length` response header? Include this value wh
 2. Write a script that uses the function from this package to output some text based art (the `figlet` package README has a 'Quick Start' section).
 3. Run the script with Node.js.
 
-## Exercise 7: Use a method with a callback
+## Exercise 8: Use a method with a callback
 
 > _After Lesson: Callbacks_
 
 Create a script that uses the Node.js core `fs.writeFile()` (callback API) method to write a text file. The documentation for this method is on the [Node.js File system](https://nodejs.org/api/fs.html#fswritefilefile-data-options-callback) page.
 
-## Exercise 8: Promises lucky draw
+## Exercise 9: Promises lucky draw
 
 > _After Lesson: Promises_
 
@@ -76,7 +100,7 @@ function luckyDraw(player) {
 }
 ```
 
-## Exercise 9: await the lucky draw results
+## Exercise 10: await the lucky draw results
 
 > _After Lesson: async and await_
 
@@ -100,7 +124,7 @@ function luckyDraw(player) {
 }
 ```
 
-## Exercise 10: Listen to the news
+## Exercise 11: Listen to the news
 
 > _After Lesson: Other asynchronous patterns_
 
@@ -132,7 +156,7 @@ function createNewsFeed() {
 const newsFeed = createNewsFeed();
 ```
 
-## Exercise 11: Set up a simple Express App
+## Exercise 12: Set up a simple Express App
 
 ### Do
 
@@ -171,7 +195,7 @@ const newsFeed = createNewsFeed();
 
 ------------------------
 
-## Exercise 12:  CRUD with dummy database
+## Exercise 13:  CRUD with dummy database
 
 ### Do
 
@@ -194,24 +218,17 @@ const newsFeed = createNewsFeed();
 - Use Postman to test the routes.
 - Paths `POST` and `PUT` should receive data in JSON format (`req.body`).
 
-## Exercise 13: CRUD with Controller
+## Exercise 14: Add Controllers
 
 ### Do
 
-- Write a router with the following routes:
-  - `GET /api/planets`: return all planets (JSON) with `200`
-  - `GET /api/planets/:id`: return a planet (JSON) by id with `200`
-  - `POST /api/planets`: create a planet, return only `201` code and a success JSON with key `msg`
-    - Make sure every planet is created with `id` and `name`.
-  - `PUT /api/planets/:id`: update a planet by id, return only `200` code and a success JSON with key `msg`
-  - `DELETE /api/planets/:id`: delete a planet by id, return only `200` code and a success JSON with key `msg`
 - Add planets Controller (`controllers/planets.ts`) consisting of the following functions:
   - `getAll`
   - `getOneById`
   - `create`
   - `updateById`
   - `deleteById`.
-- Note: the router should use controller methods to return results, by replace callback functions in routes `(req: Request, res: Response) =>` with the functions above. (For example: the route `/api/planets` should use `getAll` function.)
+- Then, replace callback functions in routes `(req: Request, res: Response) =>` with the functions above. (For example: the route `/api/planets` should use `getAll` function.)
 
 ### Use
 
@@ -225,7 +242,7 @@ const newsFeed = createNewsFeed();
 
 - Use Postman to test the routes.
 
-## Exercise 14: CRUD with Controller and Postgres DB
+## Exercise 15: Add Postgres DB
 
 ### Do
 
@@ -236,20 +253,7 @@ const newsFeed = createNewsFeed();
   - Populate the table with two planets (e.g. `'Earth'` and `'Mars'`).
 - Connect your app to Postgres using Express (`pg-promise`). [https://github.com/vitaly-t/pg-promise]
 - Replace the dummy DB with the Postgres DB.
-- Write a router with the following routes:
-  - `GET /api/planets`: return all planets (JSON) with `200`
-  - `GET /api/planets/:id`: return a planet (JSON) by id with `200`
-  - `POST /api/planets`: create a planet, return only `201` code and a success JSON with key `msg`
-    - Make sure every planet is created with `id` and `name`.
-  - `PUT /api/planets/:id`: update a planet by id, return only `200` code and a success JSON with key `msg`
-  - `DELETE /api/planets/:id`: delete a planet by id, return only `200` code and a success JSON with key `msg`
-- Add planets Controller (`controllers/planets.ts`) consisting of the following functions:
-  - `getAll`
-  - `getOneById`
-  - `create`
-  - `updateById`
-  - `deleteById`.
-- Note: the router should use controller methods to return results, by replace callback functions in routes `(req: Request, res: Response) =>` with the functions above. (For example: the route `/api/planets` should use `getAll` function.) Controller should use DB to return results (Use the SQL queries below.)
+- Rewrite all planets controller functions. They should now work with the DB. (Use the SQL queries below.)
 
 ### Use
 
@@ -299,7 +303,7 @@ const newsFeed = createNewsFeed();
 
 - Use Postman to test the routes.
 
-## Exercise 15: Upload files
+## Exercise 16: Upload files
 
 ### Do
 
@@ -325,7 +329,7 @@ const newsFeed = createNewsFeed();
 
 - Use Postman to test the upload route (you can send a file in Postman).
 
-## Exercise 16: JWT Auth part 1
+## Exercise 17: JWT Auth part 1
 
 ### Do
 
@@ -356,7 +360,7 @@ const newsFeed = createNewsFeed();
 
 - Use Postman to test the routes.
 
-## Exercise 17: JWT Auth part 2
+## Exercise 18: JWT Auth part 2
 
 ### Do
 
@@ -381,7 +385,7 @@ const newsFeed = createNewsFeed();
 
 - Use Postman to test the routes.
 
-## Exercise 18: JWT Auth part 3
+## Exercise 19: JWT Auth part 3
 
 ### Do
 
