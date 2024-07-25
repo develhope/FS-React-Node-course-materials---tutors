@@ -1,0 +1,5 @@
+The solutions for all exercises have tests. You will find the relevant solution in the folder for the component that you
+are required to test. Take a look at the test, and try to come up with different ways to
+test all components.
+
+Bonus: write tests for all exercises!
